@@ -9,7 +9,7 @@ let videos = [
     rating: 5,
     comments: 2,
     createAt: "2 minutes ago",
-    views: 1,
+    views: 59,
     id: 1,
   },
   {
