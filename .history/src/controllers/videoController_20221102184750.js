@@ -45,4 +45,4 @@ export const getEdit = (req, res) => {
   return res.render("edit", { pageTitle: `Editing: ${video.title}`, video });
 };
 
-export const postEdit = (req, res) => {};
+export postEdit = (req, res) => {}
