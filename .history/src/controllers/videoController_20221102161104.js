@@ -2,7 +2,6 @@ const fakeUser = {
   username: "Dae Hwan",
   loggedIn: true,
 };
-
 let videos = [
   {
     title: "First Video",
