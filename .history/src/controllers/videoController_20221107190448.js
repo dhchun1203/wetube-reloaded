@@ -33,11 +33,6 @@ export const postUpload = (req, res) => {
     description,
     createdAt: Date.now(),
     hashtags: hashtags.split(",").map((word) => `#${word}`),
-    meta: {
-      views: 0,
-      rating: 0,
-    },
   });
-  console.log(video);
   return res.redirect("/");
 };

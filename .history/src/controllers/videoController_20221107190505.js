@@ -38,6 +38,5 @@ export const postUpload = (req, res) => {
       rating: 0,
     },
   });
-  console.log(video);
   return res.redirect("/");
 };
