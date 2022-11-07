@@ -1,12 +1,12 @@
+import { render } from "pug";
 import Video from "../models/Video";
 
 export const home = (req, res) => {
   console.log("Start");
   Video.find({}, (error, videos) => {
     console.log("Finished");
-    return res.render("home", { pageTitle: "Home", videos });
+    return res.render("home", { pageTitle: "Home" });
   });
-  console.log("I finish first");
 };
 
 export const watch = (req, res) => {

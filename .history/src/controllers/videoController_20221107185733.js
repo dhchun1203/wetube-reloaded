@@ -1,3 +1,4 @@
+import { render } from "pug";
 import Video from "../models/Video";
 
 export const home = (req, res) => {
