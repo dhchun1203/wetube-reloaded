@@ -28,15 +28,17 @@ export const getUpload = (req, res) => {
 
 export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
-  await Video.create({
+  const video = new Video({
     title,
     description,
-    createdAt: "Date.now()",
+    createdAt: Date.now(),
     hashtags: hashtags.split(",").map((word) => `#${word}`),
     meta: {
       views: 0,
       rating: 0,
     },
   });
+  const dbVideo = await video.save();
+  console.log(dbVideo);
   return res.redirect("/");
 };
