@@ -10,7 +10,6 @@ export const watch = (req, res) => {
   const { id } = req.params;
   return res.render("watch", { pageTitle: "Watching" });
 };
-
 export const getEdit = (req, res) => {
   const { id } = req.params;
   return res.render("edit", { pageTitle: `Editing` });
@@ -33,8 +32,7 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      // model 에 default를 설정해줌
-      // createdAt: Date.now(),
+      createdAt: "Date.now()",
       hashtags: hashtags.split(",").map((word) => `#${word}`),
       meta: {
         views: 0,
@@ -44,9 +42,6 @@ export const postUpload = async (req, res) => {
     return res.redirect("/");
   } catch (error) {
     console.log(error);
-    return res.render("upload", {
-      pageTitle: "Upload Video",
-      errorMessage: error._message,
-    });
+    return res.render("upload", { pageTitle: "Upload Video" });
   }
 };

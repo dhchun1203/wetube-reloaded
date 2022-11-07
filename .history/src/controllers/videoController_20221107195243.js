@@ -33,7 +33,6 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      // model 에 default를 설정해줌
       // createdAt: Date.now(),
       hashtags: hashtags.split(",").map((word) => `#${word}`),
       meta: {
