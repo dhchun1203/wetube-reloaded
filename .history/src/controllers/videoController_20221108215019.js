@@ -38,6 +38,12 @@ export const postEdit = async (req, res) => {
       .split(",")
       .map((word) => (word.startWith("#") ? word : `#${word}`)),
   });
+  video.title = title;
+  video.description = description;
+  video.hashtags = hashtags
+    .split(",")
+    .map((word) => (word.startWith("#") ? word : `#${word}`));
+  await video.save();
   return res.redirect(`/videos/${id}`);
 };
 
