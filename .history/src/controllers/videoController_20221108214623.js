@@ -53,6 +53,10 @@ export const postUpload = async (req, res) => {
       hashtags: hashtags
         .split(",")
         .map((word) => (word.startWith("#") ? word : `#${word}`)),
+      meta: {
+        views: 0,
+        rating: 0,
+      },
     });
     return res.redirect("/");
   } catch (error) {

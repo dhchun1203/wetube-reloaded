@@ -36,7 +36,7 @@ export const postEdit = async (req, res) => {
   video.hashtags = hashtags
     .split(",")
     .map((word) => (word.startWith("#") ? word : `#${word}`));
-  await video.save();
+
   return res.redirect(`/videos/${id}`);
 };
 
@@ -50,9 +50,13 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      hashtags: hashtags
-        .split(",")
-        .map((word) => (word.startWith("#") ? word : `#${word}`)),
+      // model 에 default를 설정해줌
+      // createdAt: Date.now(),
+      hashtags: hashtags.split(",").map((word) => `#${word}`),
+      meta: {
+        views: 0,
+        rating: 0,
+      },
     });
     return res.redirect("/");
   } catch (error) {
