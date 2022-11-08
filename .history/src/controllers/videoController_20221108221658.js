@@ -76,6 +76,7 @@ export const search = async (req, res) => {
         $regex: new RegExp(`${keyword}$`, "i"),
       },
     });
+    // search
   }
-  return res.render("search", { pageTitle: "Search", videos });
+  return res.render("search", { pageTitle: "Search" });
 };
